@@ -68,11 +68,11 @@ function getDefaultConfig() {
     return {
         profile: {
             name: "HLPFL",
-            bio: "Professional Consulting & Services",
-            avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face&auto=format",
+            bio: "MI-Based Record Label",
+            avatar: "images/founder/0914B329-9D3E-421B-95D9-D027EC731771.jpeg",
             social: {
-                twitter: "https://twitter.com/hlpfl",
-                instagram: "https://instagram.com/hlpfl",
+                twitter: "https://twitter.com/hlpfl_",
+                instagram: "https://instagram.com/hlpfl_",
                 linkedin: "https://linkedin.com/company/hlpfl"
             }
         },
@@ -96,7 +96,7 @@ function getDefaultConfig() {
             {
                 id: 3,
                 title: "📧 Email Contact",
-                url: "mailto:contact@hlpfl.org",
+                url: "mailto:admin@hlpfl.org",
                 description: "Get in touch with our team",
                 type: "default",
                 icon: "📧"
