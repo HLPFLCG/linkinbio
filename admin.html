@@ -3,78 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Link in Bio</title>
+    <title>Admin Panel - HLPFL Links</title>
     <link rel="stylesheet" href="admin.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Iceland&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 <script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
 </head>
 <body>
     <div class="admin-container">
         <header class="admin-header">
-            <h1>🔧 Admin Panel</h1>
-            <p>Manage your link-in-bio page</p>
+            <h1>🔧 HLPFL Admin Panel</h1>
+            <p>Manage your professional link-in-bio page</p>
         </header>
 
+        <nav class="admin-nav">
+            <button class="btn btn-primary active" onclick="showSection('profile')">Profile</button>
+            <button class="btn btn-secondary" onclick="showSection('links')">Links</button>
+            <button class="btn btn-secondary" onclick="showSection('analytics')">Analytics</button>
+            <button class="btn btn-secondary" onclick="showSection('settings')">Settings</button>
+        </nav>
+
         <main class="admin-main">
-            <!-- Profile Editor -->
-            <section class="editor-section">
-                <h2>Profile Settings</h2>
+            <!-- Profile Section -->
+            <section id="profile-section" class="editor-section">
+                <h2>👤 Profile Settings</h2>
                 <form id="profileForm">
                     <div class="form-group">
-                        <label for="profileName">Name</label>
-                        <input type="text" id="profileName" placeholder="Your Name">
+                        <label for="profileName">Organization Name</label>
+                        <input type="text" id="profileName" placeholder="HLPFL" required>
                     </div>
                     <div class="form-group">
-                        <label for="profileBio">Bio</label>
-                        <textarea id="profileBio" rows="3" placeholder="Creator | Developer | Designer"></textarea>
+                        <label for="profileBio">Professional Bio</label>
+                        <textarea id="profileBio" rows="3" placeholder="Professional Consulting & Services" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="profileAvatar">Avatar URL</label>
-                        <input type="url" id="profileAvatar" placeholder="https://example.com/avatar.jpg">
+                        <label for="profileAvatar">Profile Image URL</label>
+                        <input type="url" id="profileAvatar" placeholder="https://example.com/profile.jpg">
                     </div>
-                    <button type="submit" class="btn btn-primary">Save Profile</button>
+                    
+                    <h3 style="margin: 2rem 0 1rem; color: #c87941;">📱 Social Media Links</h3>
+                    
+                    <div class="form-group">
+                        <label for="twitterUrl">Twitter URL</label>
+                        <input type="url" id="twitterUrl" placeholder="https://twitter.com/hlpfl">
+                    </div>
+                    <div class="form-group">
+                        <label for="instagramUrl">Instagram URL</label>
+                        <input type="url" id="instagramUrl" placeholder="https://instagram.com/hlpfl">
+                    </div>
+                    <div class="form-group">
+                        <label for="linkedinUrl">LinkedIn URL</label>
+                        <input type="url" id="linkedinUrl" placeholder="https://linkedin.com/company/hlpfl">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">💾 Save Profile</button>
                 </form>
             </section>
 
-            <!-- Social Links Editor -->
-            <section class="editor-section">
-                <h2>Social Media Links</h2>
-                <form id="socialForm">
-                    <div class="form-group">
-                        <label for="twitterUrl">Twitter</label>
-                        <input type="url" id="twitterUrl" placeholder="https://twitter.com/username">
-                    </div>
-                    <div class="form-group">
-                        <label for="instagramUrl">Instagram</label>
-                        <input type="url" id="instagramUrl" placeholder="https://instagram.com/username">
-                    </div>
-                    <div class="form-group">
-                        <label for="linkedinUrl">LinkedIn</label>
-                        <input type="url" id="linkedinUrl" placeholder="https://linkedin.com/in/username">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save Social Links</button>
-                </form>
-            </section>
-
-            <!-- Links Manager -->
-            <section class="editor-section">
-                <h2>Links Manager</h2>
+            <!-- Links Section -->
+            <section id="links-section" class="editor-section" style="display: none;">
+                <h2>🔗 Links Manager</h2>
                 <div class="links-controls">
-                    <button class="btn btn-secondary" onclick="addNewLink()">➕ Add Link</button>
-                    <button class="btn btn-secondary" onclick="exportConfig()">📤 Export Config</button>
+                    <button class="btn btn-primary" onclick="addNewLink()">➕ Add New Link</button>
+                    <button class="btn btn-secondary" onclick="exportConfig()">📤 Export Configuration</button>
                     <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importConfig(event)">
-                    <button class="btn btn-secondary" onclick="document.getElementById('importFile').click()">📥 Import Config</button>
+                    <button class="btn btn-secondary" onclick="document.getElementById('importFile').click()">📥 Import Configuration</button>
+                    <button class="btn btn-success" onclick="saveAllLinks()">💾 Save All Changes</button>
                 </div>
                 <div id="linksList" class="links-list">
                     <!-- Links will be dynamically added here -->
                 </div>
             </section>
 
-            <!-- Analytics -->
-            <section class="editor-section">
-                <h2>Analytics</h2>
+            <!-- Analytics Section -->
+            <section id="analytics-section" class="editor-section" style="display: none;">
+                <h2>📊 Analytics Dashboard</h2>
+                <div class="analytics-controls">
+                    <button class="btn btn-secondary" onclick="refreshAnalytics()">🔄 Refresh Analytics</button>
+                    <button class="btn btn-danger" onclick="clearAnalytics()">🗑️ Clear Analytics</button>
+                </div>
                 <div id="analyticsData">
-                    <p>Loading analytics...</p>
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings-section" class="editor-section" style="display: none;">
+                <h2>⚙️ Settings</h2>
+                <form id="settingsForm">
+                    <div class="form-group">
+                        <label for="enableAnalytics">Enable Analytics Tracking</label>
+                        <select id="enableAnalytics">
+                            <option value="true">Enabled</option>
+                            <option value="false">Disabled</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="analyticsProvider">Analytics Provider</label>
+                        <select id="analyticsProvider">
+                            <option value="local">Local Storage</option>
+                            <option value="google">Google Analytics</option>
+                            <option value="plausible">Plausible Analytics</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="themeColor">Primary Theme Color</label>
+                        <input type="color" id="themeColor" value="#c87941">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customDomain">Custom Domain</label>
+                        <input type="url" id="customDomain" placeholder="https://links.yourdomain.com">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">💾 Save Settings</button>
+                </form>
+                
+                <div style="margin-top: 2rem;">
+                    <h3 style="color: #c87941; margin-bottom: 1rem;">🚀 Deployment</h3>
+                    <div class="links-controls">
+                        <button class="btn btn-primary" onclick="generateMainFiles()">📄 Generate Main Files</button>
+                        <button class="btn btn-success" onclick="deployChanges()">🌐 Deploy Changes</button>
+                        <a href="index.html" target="_blank" class="btn btn-secondary">👁️ Preview Site</a>
+                    </div>
                 </div>
             </section>
         </main>

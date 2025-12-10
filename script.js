@@ -1,63 +1,79 @@
 // Link data configuration
 const linkData = {
     profile: {
-        name: "Your Name",
-        bio: "Creator | Developer | Designer",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+        name: "HLPFL",
+        bio: "Professional Consulting & Services",
+        avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face&auto=format",
         social: {
-            twitter: "https://twitter.com/yourusername",
-            instagram: "https://instagram.com/yourusername",
-            linkedin: "https://linkedin.com/in/yourusername"
+            twitter: "https://twitter.com/hlpfl",
+            instagram: "https://instagram.com/hlpfl",
+            linkedin: "https://linkedin.com/company/hlpfl"
         }
     },
     links: [
         {
             id: 1,
-            title: "🚀 My Website",
-            url: "https://yourwebsite.com",
-            description: "Check out my portfolio",
+            title: "🌐 Official Website",
+            url: "https://hlpfl.org",
+            description: "Visit our main website for complete information",
             type: "primary",
             icon: "🌐"
         },
         {
             id: 2,
-            title: "💼 LinkedIn",
-            url: "https://linkedin.com/in/yourusername",
-            description: "Professional network",
+            title: "💼 LinkedIn Company",
+            url: "https://linkedin.com/company/hlpfl",
+            description: "Connect with us professionally",
             type: "secondary",
             icon: "💼"
         },
         {
             id: 3,
-            title: "📧 Email Me",
-            url: "mailto:your.email@example.com",
-            description: "Get in touch",
+            title: "📧 Email Contact",
+            url: "mailto:contact@hlpfl.org",
+            description: "Get in touch with our team",
             type: "default",
             icon: "📧"
         },
         {
             id: 4,
-            title: "🐱 GitHub",
-            url: "https://github.com/yourusername",
-            description: "View my projects",
-            type: "secondary",
-            icon: "🐱"
+            title: "📱 Schedule Consultation",
+            url: "https://calendly.com/hlpfl",
+            description: "Book a consultation with our experts",
+            type: "primary",
+            icon: "📱"
         },
         {
             id: 5,
-            title: "🎨 Dribbble",
-            url: "https://dribbble.com/yourusername",
-            description: "Design portfolio",
-            type: "default",
-            icon: "🎨"
+            title: "📋 Services Overview",
+            url: "https://hlpfl.org/services",
+            description: "Explore our comprehensive services",
+            type: "secondary",
+            icon: "📋"
         },
         {
             id: 6,
-            title: "📝 Blog",
-            url: "https://yourblog.com",
-            description: "Read my articles",
+            title: "🎯 Case Studies",
+            url: "https://hlpfl.org/case-studies",
+            description: "See our success stories",
+            type: "default",
+            icon: "🎯"
+        },
+        {
+            id: 7,
+            title: "📞 Phone Contact",
+            url: "tel:+1234567890",
+            description: "Call us directly",
+            type: "default",
+            icon: "📞"
+        },
+        {
+            id: 8,
+            title: "💬 Live Chat Support",
+            url: "https://hlpfl.org/chat",
+            description: "Chat with our support team",
             type: "secondary",
-            icon: "📝"
+            icon: "💬"
         }
     ]
 };
@@ -65,8 +81,8 @@ const linkData = {
 // Analytics configuration
 const analytics = {
     enable: true,
-    provider: 'cloudflare', // or 'google', 'plausible'
-    trackingId: null // Add your tracking ID if needed
+    provider: 'local', // or 'google', 'plausible'
+    trackingId: null
 };
 
 // Initialize the application
@@ -81,6 +97,7 @@ function initializeApp() {
     initializeAnalytics();
     addSmoothScrolling();
     setupAnimations();
+    observeIntersections();
 }
 
 // Load profile information
@@ -141,8 +158,13 @@ function createLinkElement(link, index) {
     const linkItem = document.createElement('a');
     linkItem.href = link.url;
     linkItem.className = `link-item ${link.type || 'default'}`;
-    linkItem.target = '_blank';
-    linkItem.rel = 'noopener noreferrer';
+    
+    // Handle external links
+    if (!link.url.startsWith('tel:') && !link.url.startsWith('mailto:')) {
+        linkItem.target = '_blank';
+        linkItem.rel = 'noopener noreferrer';
+    }
+    
     linkItem.setAttribute('data-link-id', link.id);
     
     // Add animation delay
@@ -154,7 +176,7 @@ function createLinkElement(link, index) {
             <div class="link-icon">${link.icon || '🔗'}</div>
             <div>
                 <div class="link-text">${link.title}</div>
-                ${link.description ? `<small style="color: var(--text-secondary); font-size: 0.9rem;">${link.description}</small>` : ''}
+                ${link.description ? `<span class="link-description">${link.description}</span>` : ''}
             </div>
         </div>
         <div class="link-arrow">
@@ -167,6 +189,12 @@ function createLinkElement(link, index) {
     // Add click tracking
     linkItem.addEventListener('click', (e) => {
         trackLinkClick(link);
+        
+        // Add click animation
+        linkItem.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            linkItem.style.transform = '';
+        }, 150);
     });
     
     return linkItem;
@@ -195,26 +223,18 @@ function setupEventListeners() {
         }
     });
     
-    // Add smooth reveal on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+    // Add smooth scroll behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
-    }, observerOptions);
-    
-    document.querySelectorAll('.link-item').forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(item);
     });
 }
 
@@ -229,7 +249,8 @@ function initializeAnalytics() {
             action,
             label,
             timestamp: new Date().toISOString(),
-            url: window.location.href
+            url: window.location.href,
+            userAgent: navigator.userAgent
         };
         
         // Store in localStorage for demo purposes
@@ -238,7 +259,17 @@ function initializeAnalytics() {
         localStorage.setItem('linkEvents', JSON.stringify(events));
         
         console.log('Event tracked:', event);
+        
+        // Send to analytics service if configured
+        if (analytics.provider === 'google' && analytics.trackingId) {
+            // Google Analytics implementation would go here
+        }
     };
+    
+    // Track page view
+    if (typeof trackEvent === 'function') {
+        trackEvent('Page View', 'Link-in-Bio', 'HLPFL Links Page');
+    }
 }
 
 // Track link clicks
@@ -247,10 +278,10 @@ function trackLinkClick(link) {
         trackEvent('Link Click', link.title, link.url);
     }
     
-    // Optional: Add visual feedback
+    // Add visual feedback
     const linkElement = document.querySelector(`[data-link-id="${link.id}"]`);
     if (linkElement) {
-        linkElement.style.transform = 'scale(0.95)';
+        linkElement.style.transform = 'scale(0.98)';
         setTimeout(() => {
             linkElement.style.transform = '';
         }, 150);
@@ -283,6 +314,47 @@ function setupAnimations() {
             profileImage.style.transform = 'translate(0, 0)';
         });
     }
+    
+    // Add hover sound effect (optional)
+    const links = document.querySelectorAll('.link-item');
+    links.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            // Add hover sound if needed
+            link.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        });
+    });
+}
+
+// Intersection Observer for animations
+function observeIntersections() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                
+                // Add staggered animation for link items
+                if (entry.target.classList.contains('link-item')) {
+                    const linkItems = Array.from(document.querySelectorAll('.link-item'));
+                    const index = linkItems.indexOf(entry.target);
+                    entry.target.style.animationDelay = `${index * 0.1}s`;
+                }
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all link items
+    document.querySelectorAll('.link-item').forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(item);
+    });
 }
 
 // Dynamic content loading (for future use)
@@ -301,7 +373,62 @@ async function loadContentFromAPI() {
     }
 }
 
-// Theme switcher (optional)
+// Performance optimization
+function optimizePerformance() {
+    // Lazy load images
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// Accessibility improvements
+function improveAccessibility() {
+    // Add ARIA labels
+    const socialIcons = document.querySelectorAll('.social-icon');
+    socialIcons.forEach(icon => {
+        const platform = icon.dataset.platform;
+        icon.setAttribute('aria-label', `Visit HLPFL on ${platform}`);
+    });
+    
+    // Add skip to main content link
+    const skipLink = document.createElement('a');
+    skipLink.href = '#main';
+    skipLink.textContent = 'Skip to main content';
+    skipLink.className = 'skip-link';
+    skipLink.style.cssText = `
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background: #000;
+        color: #fff;
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 4px;
+        z-index: 9999;
+    `;
+    
+    skipLink.addEventListener('focus', () => {
+        skipLink.style.top = '6px';
+    });
+    
+    skipLink.addEventListener('blur', () => {
+        skipLink.style.top = '-40px';
+    });
+    
+    document.body.insertBefore(skipLink, document.body.firstChild);
+}
+
+// Theme switcher (optional future feature)
 function toggleTheme() {
     const currentTheme = document.body.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
@@ -317,7 +444,7 @@ function loadTheme() {
 }
 
 // Export functions for external use
-window.LinkBio = {
+window.HLPFLLinks = {
     updateProfile: function(newProfile) {
         Object.assign(linkData.profile, newProfile);
         loadProfile();
@@ -352,8 +479,28 @@ window.LinkBio = {
             links: linkData.links,
             analytics: this.getAnalytics()
         };
+    },
+    
+    refresh: function() {
+        renderLinks();
+        loadProfile();
     }
 };
 
-// Initialize theme
+// Initialize additional features
 loadTheme();
+improveAccessibility();
+optimizePerformance();
+
+// Service Worker registration for PWA (optional)
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('SW registered: ', registration);
+            })
+            .catch(registrationError => {
+                console.log('SW registration failed: ', registrationError);
+            });
+    });
+}
