@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Link in Bio</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>🔧 Admin Panel</h1>
+            <p>Manage your link-in-bio page</p>
+        </header>
+
+        <main class="admin-main">
+            <!-- Profile Editor -->
+            <section class="editor-section">
+                <h2>Profile Settings</h2>
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="profileName">Name</label>
+                        <input type="text" id="profileName" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="profileBio">Bio</label>
+                        <textarea id="profileBio" rows="3" placeholder="Creator | Developer | Designer"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileAvatar">Avatar URL</label>
+                        <input type="url" id="profileAvatar" placeholder="https://example.com/avatar.jpg">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Profile</button>
+                </form>
+            </section>
+
+            <!-- Social Links Editor -->
+            <section class="editor-section">
+                <h2>Social Media Links</h2>
+                <form id="socialForm">
+                    <div class="form-group">
+                        <label for="twitterUrl">Twitter</label>
+                        <input type="url" id="twitterUrl" placeholder="https://twitter.com/username">
+                    </div>
+                    <div class="form-group">
+                        <label for="instagramUrl">Instagram</label>
+                        <input type="url" id="instagramUrl" placeholder="https://instagram.com/username">
+                    </div>
+                    <div class="form-group">
+                        <label for="linkedinUrl">LinkedIn</label>
+                        <input type="url" id="linkedinUrl" placeholder="https://linkedin.com/in/username">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Social Links</button>
+                </form>
+            </section>
+
+            <!-- Links Manager -->
+            <section class="editor-section">
+                <h2>Links Manager</h2>
+                <div class="links-controls">
+                    <button class="btn btn-secondary" onclick="addNewLink()">➕ Add Link</button>
+                    <button class="btn btn-secondary" onclick="exportConfig()">📤 Export Config</button>
+                    <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importConfig(event)">
+                    <button class="btn btn-secondary" onclick="document.getElementById('importFile').click()">📥 Import Config</button>
+                </div>
+                <div id="linksList" class="links-list">
+                    <!-- Links will be dynamically added here -->
+                </div>
+            </section>
+
+            <!-- Analytics -->
+            <section class="editor-section">
+                <h2>Analytics</h2>
+                <div id="analyticsData">
+                    <p>Loading analytics...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
