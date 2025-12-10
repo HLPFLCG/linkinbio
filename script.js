@@ -2,7 +2,7 @@
 const linkData = {
     profile: {
         name: "HLPFL",
-        bio: "Professional Consulting & Services",
+        bio: "MI-Based Record Label",
         avatar: "images/founder/0914B329-9D3E-421B-95D9-D027EC731771.jpeg",
         social: {
             twitter: "https://twitter.com/hlpfl_",
