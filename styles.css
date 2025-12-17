@@ -15,6 +15,7 @@
     --white: #ffffff;
     --gray-300: #d1d5db;
     --gray-400: #9ca3af;
+    --blue: #0000CD;
     
     /* Semantic Colors */
     --primary-color: var(--gold);
@@ -169,16 +170,16 @@ body::before {
     right: 8px;
     width: 32px;
     height: 32px;
-    background: var(--gradient-primary);
+    background: var(--blue);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--dark);
+    color: var(--blue);
     font-weight: bold;
     font-size: 1rem;
-    border: 3px solid var(--bg-dark);
-    box-shadow: var(--shadow-gold);
+    border: 3px solid var(--white);
+    box-shadow: var(--bg-dark);
 }
 
 .profile-name {
