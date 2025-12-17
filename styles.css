@@ -175,7 +175,7 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--blue);
+    color: var(--white);
     font-weight: bold;
     font-size: 1rem;
     border: 3px solid var(--white);
