@@ -95,17 +95,10 @@ body::before {
     margin-bottom: 0.5rem;
 }
 
-.logo {
+.logo-svg {
     width: 3rem;
     height: 3rem;
-    background: var(--gradient-primary);
     border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--dark);
-    font-weight: 700;
-    font-size: 1.5rem;
     box-shadow: var(--shadow-gold);
     animation: float 3s ease-in-out infinite, pulse-gold 3s ease-in-out infinite;
 }
@@ -124,12 +117,7 @@ body::before {
     50% { transform: translateY(-5px); }
 }
 
-.logo-text {
-    font-weight: 700;
-    font-size: 1.75rem;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+/* Logo text removed - using SVG logo instead */
 
 .header-tagline {
     color: rgba(255, 255, 255, 0.9);
@@ -480,9 +468,7 @@ body::before {
 }
 
 @media (max-width: 380px) {
-    .logo-text {
-        font-size: 1.5rem;
-    }
+    /* Logo text removed - using SVG logo instead */
     
     .profile-name {
         font-size: 1.5rem;
