@@ -52,7 +52,7 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
-    background: var(--gradient-secondary);
+    background: #000000;
     min-height: 100vh;
     position: relative;
 }
@@ -65,10 +65,10 @@ body::before {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 80%, rgba(200, 121, 65, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(200, 121, 65, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(200, 121, 65, 0.05) 0%, transparent 50%),
-        radial-gradient(ellipse at top, rgba(200, 121, 65, 0.03) 0%, transparent 50%);
+        radial-gradient(circle at 20% 80%, rgba(200, 121, 65, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(200, 121, 65, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(200, 121, 65, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at top, rgba(200, 121, 65, 0.02) 0%, transparent 50%);
     z-index: -1;
 }
 
