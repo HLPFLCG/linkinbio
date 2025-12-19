@@ -20,16 +20,16 @@ git push -u origin main
 2. **Navigate to Pages** in the sidebar
 3. **Click "Create a project"**
 4. **Connect to Git**
-   - Select GitHub
-   - Authorize Cloudflare to access your repos
-   - Select your repository
+    - Select GitHub
+    - Authorize Cloudflare to access your repos
+    - Select your repository
 5. **Configure Build Settings**:
-   - **Framework preset**: None
-   - **Build command**: Leave empty (static site)
-   - **Build output directory**: /
-   - **Root directory**: /
+    - **Framework preset**: None
+    - **Build command**: Leave empty (static site)
+    - **Build output directory**: /
+    - **Root directory**: /
 6. **Environment Variables** (optional):
-   - Add any API keys or configuration needed
+    - Add any API keys or configuration needed
 7. **Click "Save and Deploy"**
 
 ## Step 3: Custom Domain (Optional)
@@ -38,13 +38,14 @@ git push -u origin main
 2. Click "Custom domains"
 3. Add your domain (e.g., links.yourdomain.com)
 4. Update your DNS records:
-   ```
-   CNAME links.yourdomain.com -> your-project.pages.dev
-   ```
+    ```
+    CNAME links.yourdomain.com -> your-project.pages.dev
+    ```
 
 ## Step 4: Enable Analytics (Optional)
 
 Cloudflare Pages includes built-in analytics. To enable:
+
 1. Go to your project dashboard
 2. Click "Analytics" tab
 3. View visitor statistics, popular pages, and more
@@ -52,6 +53,7 @@ Cloudflare Pages includes built-in analytics. To enable:
 ## Step 5: Custom URL Shortener (Optional)
 
 To create branded short links:
+
 1. Register a domain for short links
 2. Create worker script to redirect
 3. Configure DNS to point to Cloudflare Workers
@@ -59,6 +61,7 @@ To create branded short links:
 ## Automatic Deployments
 
 Your site will automatically redeploy when you:
+
 - Push to main branch
 - Open/merge pull requests
 - Make changes in the Cloudflare dashboard
@@ -66,6 +69,7 @@ Your site will automatically redeploy when you:
 ## Environment-Specific Configurations
 
 For different environments, you can use:
+
 - Environment variables in Cloudflare Pages
 - Multiple branches (dev, staging, production)
 - Preview deployments for pull requests
@@ -73,6 +77,7 @@ For different environments, you can use:
 ## Performance Optimization
 
 Cloudflare Pages automatically:
+
 - Minifies HTML, CSS, and JavaScript
 - Optimizes images
 - Enables HTTP/3

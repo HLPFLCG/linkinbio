@@ -152,224 +152,203 @@ custom-link-in-bio/
 └── README.md           # This file
 ```
 
-## 🎨 Customization Guide
+## 🚀 Development
 
-### Basic Customization
+### Project Structure
 
-Edit `script.js` to modify:
-
-```javascript
-const linkData = {
-    profile: {
-        name: "Your Name",
-        bio: "Creator | Developer | Designer",
-        avatar: "https://example.com/your-photo.jpg",
-        social: {
-            twitter: "https://twitter.com/yourusername",
-            instagram: "https://instagram.com/yourusername",
-            linkedin: "https://linkedin.com/in/yourusername"
-        }
-    },
-    links: [
-        {
-            title: "🚀 My Website",
-            url: "https://yourwebsite.com",
-            description: "Check out my portfolio",
-            type: "primary"
-        }
-        // Add more links...
-    ]
-};
+```
+linkinbio/
+├── index.html          # Main HTML file
+├── styles.css          # Stylesheet
+├── script.js           # JavaScript functionality
+├── sw.js              # Service Worker
+├── manifest.json      # PWA manifest
+├── robots.txt         # SEO robots file
+├── sitemap.xml        # SEO sitemap
+├── _headers           # Cloudflare security headers
+├── .well-known/       # Security and verification files
+│   └── security.txt
+├── images/            # Image assets
+│   ├── favicon/       # Favicon files
+│   ├── background/    # Background images
+│   └── ...
+├── .github/           # GitHub Actions workflows
+│   └── workflows/
+│       └── ci.yml
+├── .eslintrc.json     # ESLint configuration
+├── .prettierrc.json   # Prettier configuration
+├── .editorconfig      # Editor configuration
+└── package.json       # Dependencies and scripts
 ```
 
-### Advanced Customization
+### Available Scripts
 
-#### Colors and Theme
+- `npm run dev` - Start development server on port 3000
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+- `npm run deploy` - Deploy to Cloudflare Pages
 
-Edit CSS variables in `style.css`:
+## 🎯 Performance Metrics
 
-```css
-:root {
-    --primary-color: #6366f1;
-    --secondary-color: #8b5cf6;
-    --background-color: #0f172a;
-    --surface-color: #1e293b;
-    --text-primary: #f1f5f9;
-    --text-secondary: #94a3b8;
-}
+### Lighthouse Scores (Target)
+- **Performance**: 95+
+- **Accessibility**: 100
+- **Best Practices**: 100
+- **SEO**: 100
+
+### Core Web Vitals
+- **LCP (Largest Contentful Paint)**: < 2.5s
+- **FID (First Input Delay)**: < 100ms
+- **CLS (Cumulative Layout Shift)**: < 0.1
+
+## 🔐 Security Features
+
+### Headers Implemented
+- `Content-Security-Policy`
+- `X-Frame-Options: DENY`
+- `X-Content-Type-Options: nosniff`
+- `X-XSS-Protection: 1; mode=block`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Strict-Transport-Security` (HSTS)
+- `Permissions-Policy`
+
+### Best Practices
+- All external links use `rel="noopener noreferrer"`
+- No inline JavaScript or CSS
+- Environment variables for sensitive data
+- Regular security audits with `npm audit`
+
+## ♿ Accessibility Features
+
+- Semantic HTML5 elements
+- ARIA labels and roles
+- Keyboard navigation support
+- Skip navigation links
+- Focus indicators
+- Screen reader optimized
+- Color contrast ratios meet WCAG AA
+- Respects `prefers-reduced-motion`
+- Form labels properly associated
+
+## 📱 Progressive Web App (PWA)
+
+- **Service Worker** for offline functionality
+- **Web App Manifest** for installability
+- **App-like experience** on mobile devices
+- **Offline fallback** pages
+- **Cache-first strategy** for static assets
+
+## 🌐 Browser Support
+
+- Chrome (latest 2 versions)
+- Firefox (latest 2 versions)
+- Safari (latest 2 versions)
+- Edge (latest 2 versions)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## 📈 SEO Features
+
+- Structured data (JSON-LD) for Organization
+- Open Graph tags for social media
+- Twitter Card tags
+- robots.txt for crawler directives
+- sitemap.xml for search engines
+- Canonical URLs
+- Meta descriptions and keywords
+- Semantic HTML for better indexing
+
+## 🚀 Deployment
+
+### Cloudflare Pages
+
+1. Connect your GitHub repository to Cloudflare Pages
+2. Set build command: `npm run build`
+3. Set build output directory: `/`
+4. Deploy!
+
+The `_headers` file will automatically configure security headers.
+
+### Manual Deployment
+
+```bash
+# Build the project
+npm run build
+
+# Deploy files to your hosting provider
+# Upload: index.html, styles.css, script.js, sw.js, manifest.json,
+#         robots.txt, sitemap.xml, _headers, images/, .well-known/
 ```
 
-#### Animations
+## 🧪 Testing
 
-Modify CSS animations or disable them:
+### Manual Testing Checklist
+- [ ] Test on Chrome, Firefox, Safari, Edge
+- [ ] Test on mobile devices (iOS, Android)
+- [ ] Test keyboard navigation
+- [ ] Test screen reader compatibility
+- [ ] Test with slow 3G connection
+- [ ] Test offline functionality
+- [ ] Verify all links work
+- [ ] Check form submission
+- [ ] Verify social media previews
 
-```css
-/* Disable animations for reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-```
+### Automated Testing
+- ESLint for code quality
+- Prettier for code formatting
+- Lighthouse CI for performance
+- npm audit for security vulnerabilities
 
-#### Custom Fonts
+## 📊 Analytics & Monitoring
 
-Add custom fonts in `index.html`:
-
-```html
-<link href="https://fonts.googleapis.com/css2?family=YourFont&display=swap" rel="stylesheet">
-```
-
-And update CSS:
-
-```css
-body {
-    font-family: 'YourFont', sans-serif;
-}
-```
-
-## 🔧 Admin Panel
-
-Access the admin panel at `your-domain.com/admin.html` to:
-
-- ✏️ Edit profile information
-- 🔗 Manage links easily
-- 🎨 Customize colors
-- 📊 View analytics
-- 📤 Export/import configuration
-- 💾 Save changes locally
-
-## 📊 Analytics
-
-Built-in analytics tracks:
-
-- Total clicks per link
-- Most popular links
-- Click timestamps
-- User engagement patterns
-
-View analytics in the admin panel or access raw data:
-
-```javascript
-// Get analytics data
-const analytics = window.LinkBio.getAnalytics();
-console.log(analytics);
-```
-
-## 🌐 Deployment Options
-
-### Option 1: Cloudflare Pages (Recommended)
-
-1. **Create GitHub Repository**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/yourusername/repo.git
-   git push -u origin main
-   ```
-
-2. **Deploy to Cloudflare Pages**
-   - Go to Cloudflare Dashboard
-   - Navigate to Pages
-   - Connect to GitHub
-   - Select your repository
-   - Deploy
-
-3. **Custom Domain** (Optional)
-   - Add custom domain in Cloudflare Pages settings
-   - Update DNS records
-
-### Option 2: Other Static Hosts
-
-Works perfectly with:
-- Netlify
-- Vercel
-- GitHub Pages
-- Surge.sh
-- Any static hosting service
-
-## 🔒 Security Features
-
-- **HTTPS Only**: Automatic SSL certificate
-- **CORS Protected**: Secure cross-origin requests
-- **Input Validation**: Sanitized user inputs
-- **No External Dependencies**: Reduced attack surface
-- **Privacy Focused**: No third-party tracking
-
-## ♿ Accessibility
-
-- **Keyboard Navigation**: Full keyboard support
-- **Screen Reader**: ARIA labels and semantic HTML
-- **High Contrast**: WCAG AA compliant colors
-- **Focus Management**: Visible focus indicators
-- **Reduced Motion**: Respects user preferences
-
-## 📱 Mobile Optimization
-
-- **Responsive Design**: Adapts to all screen sizes
-- **Touch Friendly**: Large tap targets
-- **Fast Loading**: Optimized for mobile networks
-- **PWA Ready**: Can be installed as app
-
-## 🔄 Update Workflow
-
-1. Make changes locally
-2. Test with `npm run dev`
-3. Commit and push to GitHub
-4. Cloudflare Pages auto-deploys
-5. Changes live in seconds
-
-## 🛡️ Backup & Recovery
-
-- **Git Version Control**: Full change history
-- **Config Export**: Download backup anytime
-- **Local Storage**: Admin panel saves locally
-- **Multiple Environments**: Dev/Staging/Production
+Consider adding:
+- Google Analytics or privacy-focused alternative
+- Error tracking (Sentry, Bugsnag)
+- Performance monitoring (New Relic, Datadog)
+- Uptime monitoring
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create feature branch: `git checkout -b feature-name`
-3. Make changes and test
-4. Commit: `git commit -m 'Add feature'`
-5. Push: `git push origin feature-name`
-6. Open Pull Request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+### Code Style
+- Follow ESLint and Prettier configurations
+- Write semantic HTML
+- Use CSS custom properties for theming
+- Comment complex logic
+- Keep functions small and focused
 
 ## 📄 License
 
-MIT License - feel free to use, modify, and distribute.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🆘 Support
+## 👥 Authors
 
-- 📖 Check [deploy.md](deploy.md) for deployment help
-- 🐛 Report issues on GitHub
-- 💬 Ask questions in discussions
-- 📧 Email: your-email@example.com
+- **Jim Rockel** - Founder, HLPFL Records
+- **Development Team** - HLPFL Tech
 
-## 🌟 Show Your Support
+## 🙏 Acknowledgments
 
-If this project helped you:
+- Font: Montserrat by Google Fonts
+- Icons: Custom SVG icons
+- Hosting: Cloudflare Pages
 
-- ⭐ Star the repository
-- 🐦 Follow on Twitter
-- 💼 Connect on LinkedIn
-- ☕ Buy me a coffee
+## 📞 Contact
 
-## 🎯 Roadmap
+- Website: [hlpfl.org](https://hlpfl.org)
+- Email: [Contact Form](https://hlpfl.org/contact/)
+- Instagram: [@hlpfl_](https://www.instagram.com/hlpfl_/)
+- Twitter: [@hlpfl_](https://x.com/hlpfl_)
 
-- [ ] Dark/Light theme toggle
-- [ ] QR code generation
-- [ ] Advanced analytics dashboard
-- [ ] Link scheduling
-- [ ] Team collaboration features
-- [ ] API integration
-- [ ] Custom domains wizard
-- [ ] Performance metrics
+## 🎵 About HLPFL
+
+HLPFL Records is a Michigan-based record label discovering, developing, and promoting exceptional musical talent. We elevate artists to global recognition with cutting-edge production and worldwide distribution.
 
 ---
 
-**Built with ❤️ using GitHub & Cloudflare Pages**
-
-*Free forever. No ads. No tracking. Just your links, your way.*
+**Made with ❤️ by HLPFL Records**
