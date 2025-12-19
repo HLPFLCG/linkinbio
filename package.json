@@ -23,8 +23,8 @@
   "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
-    "live-server": "^1.2.2",
     "eslint": "^8.57.0",
+    "live-server": "^1.2.0",
     "prettier": "^3.2.5"
   },
   "repository": {

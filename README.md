@@ -1,52 +1,139 @@
-# Custom Link-in-Bio Builder 🚀
+# HLPFL Link-in-Bio Platform 🎵
 
-A lightweight, customizable link-in-bio solution built with vanilla JavaScript, CSS3, and HTML5, deployed on Cloudflare Pages. Zero monthly costs, complete control, and endless customization possibilities.
+[![CI/CD](https://github.com/HLPFLCG/linkinbio/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/HLPFLCG/linkinbio/actions)
+[![Lighthouse Score](https://img.shields.io/badge/Lighthouse-95%2B-success)](https://developers.google.com/web/tools/lighthouse)
+[![Accessibility](https://img.shields.io/badge/Accessibility-WCAG%202.1%20AA-blue)](https://www.w3.org/WAI/WCAG21/quickref/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A world-class, accessible, and performant link-in-bio platform for HLPFL Records. Built with vanilla JavaScript, CSS3, and HTML5, following THE PERFECTION MANDATE standards for excellence in web development.
 
 ## ✨ Features
 
-- 🚀 **Lightning Fast** - Cloudflare's global CDN delivers content instantly
-- 🎨 **Fully Customizable** - Modify colors, fonts, layout, and animations
-- 📱 **Mobile Responsive** - Perfect experience on all devices
-- 📊 **Built-in Analytics** - Track clicks and user engagement
-- 🔄 **Easy Updates** - Push changes via GitHub, auto-deploy
-- 💰 **Zero Hosting Costs** - Free on Cloudflare Pages
-- 🌐 **Custom Domain** - Use your own domain for free
-- 🔒 **Secure & Private** - No ads, no tracking, you own your data
-- ♿ **Accessible** - WCAG compliant with keyboard navigation
-- 📈 **SEO Optimized** - Meta tags, structured data, fast loading
+### 🎯 Core Features
+- 🚀 **Lightning Fast** - Optimized for performance with 95+ Lighthouse score
+- 🎨 **Fully Customizable** - Complete control over design and branding
+- 📱 **Mobile First** - Responsive design that works perfectly on all devices
+- ♿ **WCAG 2.1 AA Compliant** - Fully accessible with keyboard navigation and screen reader support
+- 🔒 **Enterprise Security** - Comprehensive security headers and CSP implementation
+- 📈 **SEO Optimized** - Structured data, meta tags, and search engine friendly
+
+### 🚀 Performance
+- ⚡ Service Worker for offline support
+- 📦 PWA support for installable app experience
+- 🎯 Optimized caching strategies
+- 🖼️ Lazy loading for images
+- 📊 Core Web Vitals optimized
+
+### 🔐 Security
+- 🛡️ Content Security Policy (CSP)
+- 🔒 HTTPS enforcement with HSTS
+- 🚫 XSS and clickjacking protection
+- 📝 Security.txt for responsible disclosure
+- 🔍 Regular security audits
+
+### ♿ Accessibility
+- ⌨️ Full keyboard navigation
+- 🔊 Screen reader optimized
+- 👁️ High contrast mode support
+- 🎨 WCAG 2.1 AA color contrast
+- 🎭 Reduced motion support
+- 🏷️ Comprehensive ARIA labels
+
+### 🎨 User Experience
+- ✨ Smooth animations and transitions
+- 📝 Accessible contact form
+- 🎯 Skip navigation links
+- 💬 Toast notifications
+- 🎪 Interactive elements
+- 📱 PWA install prompt
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript (no frameworks!)
-- **Hosting**: Cloudflare Pages
-- **Version Control**: GitHub
-- **Build Tools**: None needed (static site)
-- **Analytics**: Cloudflare Analytics + Custom tracking
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript ES6+
+- **Hosting**: Cloudflare Pages with global CDN
+- **Version Control**: GitHub with automated CI/CD
+- **Code Quality**: ESLint + Prettier
+- **Testing**: GitHub Actions, Lighthouse CI, Pa11y
+- **PWA**: Service Worker, Web App Manifest
+- **Security**: CSP, Security Headers, HTTPS
+- **Performance**: Optimized caching, lazy loading
+- **Accessibility**: WCAG 2.1 AA compliant
 
 ## 🚀 Quick Start
 
-### 1. Clone and Customize
+### Prerequisites
+
+- Node.js 20.x or higher
+- npm 10.x or higher
+- Git
+
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/custom-link-in-bio.git
-cd custom-link-in-bio
+git clone https://github.com/HLPFLCG/linkinbio.git
+cd linkinbio
 ```
 
-### 2. Edit Your Information
+### 2. Install Dependencies
 
-Edit `script.js` or use the admin panel (`admin.html`) to customize:
+```bash
+npm install
+```
 
-- Your name and bio
-- Profile picture
-- Social media links
-- Custom links and descriptions
-- Colors and theme
+### 3. Start Development Server
 
-### 3. Deploy to Cloudflare Pages
+```bash
+npm run dev
+```
 
-1. Push to GitHub
+The site will be available at `http://localhost:3000`
+
+### 4. Customize Content
+
+Edit the following files to customize your link-in-bio:
+
+- `index.html` - Update profile information, links, and content
+- `styles.css` - Customize colors, fonts, and design
+- `form.css` - Modify contact form styling
+- `script.js` - Add custom functionality
+
+### 5. Test Your Changes
+
+```bash
+# Run linting
+npm run lint
+
+# Format code
+npm run format
+
+# Check formatting
+npx prettier --check "*.{html,css,js}"
+```
+
+### 6. Deploy to Production
+
+#### Option A: Cloudflare Pages (Recommended)
+
+1. Push changes to GitHub:
+```bash
+git add .
+git commit -m "Your commit message"
+git push origin main
+```
+
 2. Connect repository to Cloudflare Pages
-3. Deploy automatically (30 seconds)
+3. Configure build settings:
+   - Build command: `npm run build`
+   - Build output directory: `/`
+4. Deploy automatically
+
+#### Option B: Other Platforms
+
+The site works with any static hosting platform:
+- Netlify
+- Vercel
+- GitHub Pages
+- AWS S3 + CloudFront
 
 ## 📁 Project Structure
 
