@@ -3,8 +3,8 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://hlpfl.info/sitemap.xml
+# Sitemap
+Sitemap: https://hlpfl.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1

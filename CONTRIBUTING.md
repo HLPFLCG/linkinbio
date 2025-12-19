@@ -1,205 +1,281 @@
 # Contributing to HLPFL Link-in-Bio
 
-First off, thank you for considering contributing to HLPFL Link-in-Bio! It's people like you that make this project better.
+Thank you for your interest in contributing to the HLPFL Link-in-Bio platform! This document provides guidelines and instructions for contributing.
 
-## Code of Conduct
+## 📋 Table of Contents
 
-This project and everyone participating in it is governed by our commitment to creating a welcoming and inclusive environment. By participating, you are expected to uphold this standard.
+- [Code of Conduct](#code-of-conduct)
+- [Getting Started](#getting-started)
+- [Development Workflow](#development-workflow)
+- [Coding Standards](#coding-standards)
+- [Testing Guidelines](#testing-guidelines)
+- [Commit Guidelines](#commit-guidelines)
+- [Pull Request Process](#pull-request-process)
 
-## How Can I Contribute?
+## 🤝 Code of Conduct
 
-### Reporting Bugs
+We are committed to providing a welcoming and inclusive environment. Please be respectful and professional in all interactions.
 
-Before creating bug reports, please check the existing issues to avoid duplicates. When you create a bug report, include as many details as possible:
+## 🚀 Getting Started
 
-- **Use a clear and descriptive title**
-- **Describe the exact steps to reproduce the problem**
-- **Provide specific examples**
-- **Describe the behavior you observed and what you expected**
-- **Include screenshots if applicable**
-- **Include your environment details** (browser, OS, etc.)
+### Prerequisites
 
-### Suggesting Enhancements
+- Node.js 20.x or higher
+- npm 10.x or higher
+- Git
 
-Enhancement suggestions are tracked as GitHub issues. When creating an enhancement suggestion:
+### Setup
 
-- **Use a clear and descriptive title**
-- **Provide a detailed description of the suggested enhancement**
-- **Explain why this enhancement would be useful**
-- **List any alternatives you've considered**
+1. Fork the repository
+2. Clone your fork:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/linkinbio.git
+   cd linkinbio
+   ```
 
-### Pull Requests
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-1. **Fork the repository** and create your branch from `main`
-2. **Make your changes** following our coding standards
-3. **Test your changes** thoroughly
-4. **Update documentation** if needed
-5. **Ensure the test suite passes**
-6. **Make sure your code lints** (run `npm run lint`)
-7. **Format your code** (run `npm run format`)
-8. **Write a clear commit message**
-9. **Submit your pull request**
+4. Start development server:
+   ```bash
+   npm run dev
+   ```
 
-## Development Process
+5. Open http://localhost:3000 in your browser
 
-### Setup Development Environment
+## 💻 Development Workflow
 
-```bash
-# Clone your fork
-git clone https://github.com/YOUR_USERNAME/linkinbio.git
-cd linkinbio
+1. Create a new branch:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
 
-# Install dependencies
-npm install
+2. Make your changes
 
-# Start development server
-npm run dev
-```
+3. Test your changes:
+   ```bash
+   npm run lint
+   npm run format
+   ```
 
-### Coding Standards
+4. Commit your changes (see [Commit Guidelines](#commit-guidelines))
 
-#### HTML
+5. Push to your fork:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+6. Create a Pull Request
+
+## 📝 Coding Standards
+
+### HTML
+
 - Use semantic HTML5 elements
-- Include proper ARIA labels
-- Ensure accessibility (WCAG 2.1 AA)
-- Keep markup clean and well-indented
+- Include proper ARIA labels for accessibility
+- Maintain proper heading hierarchy (h1 → h2 → h3)
+- Add alt text to all images
+- Use meaningful class names
 
-#### CSS
-- Use CSS custom properties for theming
-- Follow mobile-first approach
-- Keep selectors specific but not overly complex
-- Group related styles together
-- Comment complex CSS when necessary
+### CSS
 
-#### JavaScript
+- Follow BEM naming convention where appropriate
+- Use CSS custom properties (variables) for colors and spacing
+- Write mobile-first responsive styles
+- Group related properties together
+- Add comments for complex styles
+
+### JavaScript
+
 - Use ES6+ features
 - Follow ESLint rules
-- Write clear, self-documenting code
-- Add comments for complex logic
+- Add JSDoc comments for functions
+- Handle errors gracefully
+- Use meaningful variable and function names
 - Keep functions small and focused
-- Use meaningful variable names
 
-### Code Style
+### Accessibility
 
-We use ESLint and Prettier to maintain code quality:
+- Ensure WCAG 2.1 AA compliance
+- Test with keyboard navigation
+- Test with screen readers
+- Maintain color contrast ratios
+- Support reduced motion preferences
+
+### Performance
+
+- Optimize images before committing
+- Minimize CSS and JavaScript
+- Use lazy loading for images
+- Avoid render-blocking resources
+- Test with Lighthouse
+
+## 🧪 Testing Guidelines
+
+### Manual Testing
+
+- Test on multiple browsers (Chrome, Firefox, Safari, Edge)
+- Test on multiple devices (mobile, tablet, desktop)
+- Test keyboard navigation
+- Test with screen readers
+- Test with slow network connections
+
+### Automated Testing
+
+- Run linting: `npm run lint`
+- Check formatting: `npx prettier --check "*.{html,css,js}"`
+- Validate HTML structure
+- Check accessibility with Pa11y
+
+## 📝 Commit Guidelines
+
+We follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
+
+### Format
+
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+### Types
+
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `style`: Code style changes (formatting, etc.)
+- `refactor`: Code refactoring
+- `perf`: Performance improvements
+- `test`: Adding or updating tests
+- `chore`: Maintenance tasks
+
+### Examples
 
 ```bash
-# Check linting
-npm run lint
-
-# Format code
-npm run format
+feat(links): add new social media link
+fix(form): resolve validation error on submit
+docs(readme): update installation instructions
+style(css): improve button hover effects
+refactor(script): simplify animation logic
+perf(images): optimize logo file size
 ```
 
-### Commit Messages
+## 🔄 Pull Request Process
 
-Follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
+1. **Update Documentation**: Update README.md if needed
+2. **Add Tests**: Include tests for new features
+3. **Follow Style Guide**: Ensure code follows our standards
+4. **Write Clear Description**: Explain what and why
+5. **Link Issues**: Reference related issues
+6. **Request Review**: Tag relevant reviewers
+7. **Address Feedback**: Respond to review comments
+8. **Squash Commits**: Clean up commit history if needed
 
-- `feat:` - New feature
-- `fix:` - Bug fix
-- `docs:` - Documentation changes
-- `style:` - Code style changes (formatting, etc.)
-- `refactor:` - Code refactoring
-- `perf:` - Performance improvements
-- `test:` - Adding or updating tests
-- `chore:` - Maintenance tasks
+### PR Template
 
-Examples:
-```
-feat: add dark mode toggle
-fix: resolve mobile menu overflow issue
-docs: update installation instructions
-style: format code with prettier
-refactor: simplify navigation component
-perf: optimize image loading
-```
+```markdown
+## Description
+Brief description of changes
 
-### Testing
+## Type of Change
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Breaking change
+- [ ] Documentation update
 
-Before submitting a pull request:
+## Testing
+- [ ] Tested on Chrome
+- [ ] Tested on Firefox
+- [ ] Tested on Safari
+- [ ] Tested on mobile
+- [ ] Accessibility tested
+- [ ] Performance tested
 
-1. **Test on multiple browsers**
-   - Chrome (latest)
-   - Firefox (latest)
-   - Safari (latest)
-   - Edge (latest)
+## Screenshots
+Add screenshots if applicable
 
-2. **Test on mobile devices**
-   - iOS Safari
-   - Chrome Mobile
-
-3. **Test accessibility**
-   - Keyboard navigation
-   - Screen reader compatibility
-   - Color contrast
-
-4. **Test performance**
-   - Run Lighthouse audit
-   - Check Core Web Vitals
-
-### Documentation
-
-- Update README.md if you change functionality
-- Update CHANGELOG.md following Keep a Changelog format
-- Add JSDoc comments for new functions
-- Update TODO.md if applicable
-
-## Project Structure
-
-```
-linkinbio/
-├── index.html          # Main HTML file
-├── styles.css          # Stylesheet
-├── script.js           # JavaScript functionality
-├── sw.js              # Service Worker
-├── manifest.json      # PWA manifest
-├── robots.txt         # SEO robots file
-├── sitemap.xml        # SEO sitemap
-├── _headers           # Cloudflare security headers
-├── .well-known/       # Security and verification files
-├── images/            # Image assets
-├── .github/           # GitHub Actions workflows
-└── ...
+## Checklist
+- [ ] Code follows style guidelines
+- [ ] Self-review completed
+- [ ] Comments added for complex code
+- [ ] Documentation updated
+- [ ] No new warnings generated
+- [ ] Tests pass locally
 ```
 
-## Performance Guidelines
+## 🐛 Reporting Bugs
 
-- Keep JavaScript bundle size minimal
-- Optimize images (use WebP format)
-- Implement lazy loading where appropriate
-- Use CSS custom properties for theming
-- Minimize CSS and JavaScript
-- Leverage browser caching
+### Before Submitting
 
-## Accessibility Guidelines
+- Check existing issues
+- Test on latest version
+- Gather reproduction steps
 
-- Follow WCAG 2.1 Level AA standards
-- Use semantic HTML
-- Include ARIA labels where needed
-- Ensure keyboard navigation works
-- Maintain color contrast ratios
-- Test with screen readers
-- Support prefers-reduced-motion
+### Bug Report Template
 
-## Security Guidelines
+```markdown
+**Describe the bug**
+Clear description of the bug
 
-- Never commit sensitive data
-- Use environment variables for secrets
-- Sanitize user inputs
-- Follow OWASP Top 10 guidelines
-- Keep dependencies updated
-- Run security audits regularly
+**To Reproduce**
+Steps to reproduce:
+1. Go to '...'
+2. Click on '...'
+3. See error
 
-## Questions?
+**Expected behavior**
+What should happen
 
-Feel free to open an issue with your question or reach out via:
-- Website: [hlpfl.org](https://hlpfl.org)
-- Email: [Contact Form](https://hlpfl.org/contact/)
+**Screenshots**
+Add screenshots if applicable
 
-## License
+**Environment:**
+- Browser: [e.g., Chrome 120]
+- OS: [e.g., macOS 14]
+- Device: [e.g., iPhone 15]
+```
 
-By contributing, you agree that your contributions will be licensed under the MIT License.
+## 💡 Suggesting Features
+
+### Feature Request Template
+
+```markdown
+**Is your feature request related to a problem?**
+Clear description of the problem
+
+**Describe the solution**
+How should it work?
+
+**Describe alternatives**
+Other solutions considered
+
+**Additional context**
+Any other information
+```
+
+## 📚 Resources
+
+- [HTML Best Practices](https://github.com/hail2u/html-best-practices)
+- [CSS Guidelines](https://cssguidelin.es/)
+- [JavaScript Style Guide](https://github.com/airbnb/javascript)
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+- [Web Performance](https://web.dev/performance/)
+
+## 🙏 Thank You
+
+Thank you for contributing to HLPFL Link-in-Bio! Your efforts help make this project better for everyone.
+
+## 📧 Contact
+
+- Email: dev@hlpfl.org
+- Discord: [Join our server](https://discord.gg/hlpfl)
+- Twitter: [@hlpfl_](https://twitter.com/hlpfl_)
 
 ---
 
-Thank you for contributing to HLPFL Link-in-Bio! 🎵
+**Happy Coding! 🎵**

@@ -3,8 +3,10 @@
   "trailingComma": "es5",
   "singleQuote": true,
   "printWidth": 100,
-  "tabWidth": 4,
+  "tabWidth": 2,
   "useTabs": false,
-  "arrowParens": "avoid",
-  "endOfLine": "lf"
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "bracketSpacing": true,
+  "htmlWhitespaceSensitivity": "css"
 }
