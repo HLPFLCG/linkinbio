@@ -15,8 +15,8 @@
     --white: #ffffff;
     --gray-300: #d1d5db;
     --gray-400: #9ca3af;
-    --blue: #0000CD;
-    
+    --blue: #0000cd;
+
     /* Semantic Colors */
     --primary-color: var(--gold);
     --primary-dark: var(--gold-dark);
@@ -28,20 +28,22 @@
     --bg-dark: var(--dark);
     --bg-dark-secondary: var(--dark-secondary);
     --border-color: rgba(200, 121, 65, 0.2);
-    
+
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, var(--gold), var(--gold-dark));
     --gradient-primary-light: linear-gradient(135deg, var(--gold-light), var(--gold));
     --gradient-secondary: linear-gradient(135deg, var(--dark), var(--dark-secondary));
     --gradient-gold-shimmer: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold));
-    
+
     /* Shadows with gold tint */
     --shadow-sm: 0 1px 2px 0 rgba(200, 121, 65, 0.1);
     --shadow-md: 0 4px 6px -1px rgba(200, 121, 65, 0.15), 0 2px 4px -1px rgba(200, 121, 65, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(200, 121, 65, 0.2), 0 4px 6px -2px rgba(200, 121, 65, 0.15);
-    --shadow-xl: 0 20px 25px -5px rgba(200, 121, 65, 0.25), 0 10px 10px -5px rgba(200, 121, 65, 0.2);
-    --shadow-gold: 0 10px 15px -3px rgba(200, 121, 65, 0.3), 0 4px 6px -2px rgba(200, 121, 65, 0.25);
-    
+    --shadow-xl:
+        0 20px 25px -5px rgba(200, 121, 65, 0.25), 0 10px 10px -5px rgba(200, 121, 65, 0.2);
+    --shadow-gold:
+        0 10px 15px -3px rgba(200, 121, 65, 0.3), 0 4px 6px -2px rgba(200, 121, 65, 0.25);
+
     /* Border Radius */
     --radius-sm: 0.5rem;
     --radius-md: 0.75rem;
@@ -50,7 +52,13 @@
 }
 
 body {
-    font-family: 'Montsterrat', -montsterrat, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family:
+        'Montserrat',
+        -montsterrat,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
     background: #000000;
@@ -65,7 +73,7 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(circle at 20% 80%, rgba(200, 121, 65, 0.08) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(200, 121, 65, 0.06) 0%, transparent 50%),
         radial-gradient(circle at 40% 40%, rgba(200, 121, 65, 0.04) 0%, transparent 50%),
@@ -101,21 +109,31 @@ body::before {
     height: 3rem;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-gold);
-    animation: float 3s ease-in-out infinite, pulse-gold 3s ease-in-out infinite;
+    animation:
+        float 3s ease-in-out infinite,
+        pulse-gold 3s ease-in-out infinite;
 }
 
 @keyframes pulse-gold {
-    0%, 100% {
+    0%,
+    100% {
         box-shadow: var(--shadow-gold);
     }
     50% {
-        box-shadow: 0 0 20px rgba(200, 121, 65, 0.4), var(--shadow-gold);
+        box-shadow:
+            0 0 20px rgba(200, 121, 65, 0.4),
+            var(--shadow-gold);
     }
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
 }
 
 /* Logo text removed - using SVG logo instead */
@@ -407,6 +425,122 @@ body::before {
     border-color: var(--gold);
 }
 
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #1a1a1a;
+    border-radius: 12px;
+    border: 1px solid #333;
+}
+
+.contact-form h2 {
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: #333;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background: var(--gold);
+    color: #0a0a0a;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-form button[type="submit"]:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+}
+
+.contact-form button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Skip Link for Accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--gold);
+    color: var(--dark);
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0 0 4px 0;
+    z-index: 100;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 2px solid var(--gold-light);
+    outline-offset: 2px;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .profile-image {
+        transform: none !important;
+    }
+    
+    .logo-svg {
+        animation: none !important;
+    }
+}
+
 /* Footer */
 .footer {
     text-align: center;
@@ -447,21 +581,21 @@ body::before {
     .container {
         padding: 1rem 0.75rem;
     }
-    
+
     .profile-stats {
         gap: 1.5rem;
     }
-    
+
     .link-button {
         padding: 0.875rem 1rem;
     }
-    
+
     .link-icon {
         width: 36px;
         height: 36px;
         font-size: 1.125rem;
     }
-    
+
     .social-link {
         width: 44px;
         height: 44px;
@@ -470,19 +604,19 @@ body::before {
 
 @media (max-width: 380px) {
     /* Logo text removed - using SVG logo instead */
-    
+
     .profile-name {
         font-size: 1.5rem;
     }
-    
+
     .profile-stats {
         gap: 1rem;
     }
-    
+
     .stat-number {
         font-size: 1.125rem;
     }
-    
+
     .stat-label {
         font-size: 0.75rem;
     }
@@ -490,7 +624,8 @@ body::before {
 
 /* Loading Animation */
 @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
         opacity: 1;
     }
     50% {

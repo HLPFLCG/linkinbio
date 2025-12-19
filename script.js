@@ -1,12 +1,12 @@
 // Link-in-Bio Interactions
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Animate elements on scroll
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -50px 0px',
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
@@ -25,13 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add ripple effect to link buttons
     document.querySelectorAll('.link-button, .social-link').forEach(button => {
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             const ripple = document.createElement('span');
             const rect = this.getBoundingClientRect();
             const size = Math.max(rect.width, rect.height);
             const x = e.clientX - rect.left - size / 2;
             const y = e.clientY - rect.top - size / 2;
-            
+
             ripple.style.cssText = `
                 position: absolute;
                 border-radius: 50%;
@@ -44,11 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 transform: scale(0);
                 animation: ripple 0.6s ease-out;
             `;
-            
+
             this.style.position = 'relative';
             this.style.overflow = 'hidden';
             this.appendChild(ripple);
-            
+
             setTimeout(() => ripple.remove(), 600);
         });
     });
@@ -67,10 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Copy link functionality
     document.querySelectorAll('.link-button').forEach(button => {
-        button.addEventListener('contextmenu', function(e) {
+        button.addEventListener('contextmenu', function (e) {
             e.preventDefault();
             const url = this.href;
-            
+
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(url).then(() => {
                     showToast('Link copied to clipboard!');
@@ -106,13 +106,13 @@ document.addEventListener('DOMContentLoaded', function() {
             z-index: 10000;
             transition: transform 0.3s ease;
         `;
-        
+
         document.body.appendChild(toast);
-        
+
         setTimeout(() => {
             toast.style.transform = 'translateX(-50%) translateY(0)';
         }, 100);
-        
+
         setTimeout(() => {
             toast.style.transform = 'translateX(-50%) translateY(100px)';
             setTimeout(() => document.body.removeChild(toast), 300);
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add hover sound effect (visual feedback instead of actual sound)
     document.querySelectorAll('.link-button, .social-link').forEach(element => {
-        element.addEventListener('mouseenter', function() {
+        element.addEventListener('mouseenter', function () {
             this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
         });
     });
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Profile image tilt effect
     const profileImage = document.querySelector('.profile-image');
     if (profileImage) {
-        profileImage.addEventListener('mousemove', function(e) {
+        profileImage.addEventListener('mousemove', function (e) {
             const rect = this.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
@@ -137,23 +137,23 @@ document.addEventListener('DOMContentLoaded', function() {
             const centerY = rect.height / 2;
             const rotateX = (y - centerY) / 10;
             const rotateY = (centerX - x) / 10;
-            
+
             this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
         });
-        
-        profileImage.addEventListener('mouseleave', function() {
+
+        profileImage.addEventListener('mouseleave', function () {
             this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
         });
     }
 
     // Social links hover effect
     document.querySelectorAll('.social-link').forEach((link, index) => {
-        link.addEventListener('mouseenter', function() {
+        link.addEventListener('mouseenter', function () {
             this.style.animationDelay = `${index * 0.1}s`;
             this.style.animation = 'bounce 0.6s ease';
         });
-        
-        link.addEventListener('animationend', function() {
+
+        link.addEventListener('animationend', function () {
             this.style.animation = '';
         });
     });
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
         bio.textContent = '';
         bio.style.borderRight = '2px solid rgba(255, 255, 255, 0.8)';
         bio.style.paddingRight = '4px';
-        
+
         let index = 0;
         const typeWriter = () => {
             if (index < originalText.length) {
@@ -197,44 +197,47 @@ document.addEventListener('DOMContentLoaded', function() {
                 bio.style.paddingRight = '0';
             }
         };
-        
+
         setTimeout(typeWriter, 1000);
     }
 
     // Stats counter animation
     const stats = document.querySelectorAll('.stat-number');
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-                entry.target.classList.add('counted');
-                const finalText = entry.target.textContent;
-                const number = parseInt(finalText.replace(/\D/g, ''));
-                const suffix = finalText.replace(/[\d]/g, '');
-                let current = 0;
-                const increment = number / 50;
-                
-                const counter = () => {
-                    current += increment;
-                    if (current < number) {
-                        entry.target.textContent = Math.floor(current) + suffix;
-                        requestAnimationFrame(counter);
-                    } else {
-                        entry.target.textContent = finalText;
-                    }
-                };
-                
-                counter();
-            }
-        });
-    }, { threshold: 0.5 });
-    
+    const statsObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    entry.target.classList.add('counted');
+                    const finalText = entry.target.textContent;
+                    const number = parseInt(finalText.replace(/\D/g, ''));
+                    const suffix = finalText.replace(/[\d]/g, '');
+                    let current = 0;
+                    const increment = number / 50;
+
+                    const counter = () => {
+                        current += increment;
+                        if (current < number) {
+                            entry.target.textContent = Math.floor(current) + suffix;
+                            requestAnimationFrame(counter);
+                        } else {
+                            entry.target.textContent = finalText;
+                        }
+                    };
+
+                    counter();
+                }
+            });
+        },
+        { threshold: 0.5 }
+    );
+
     stats.forEach(stat => statsObserver.observe(stat));
 
     // Add keyboard navigation
     let currentLinkIndex = -1;
     const links = Array.from(document.querySelectorAll('.link-button'));
-    
-    document.addEventListener('keydown', function(e) {
+
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowDown' || e.key === 'Tab') {
             e.preventDefault();
             currentLinkIndex = (currentLinkIndex + 1) % links.length;
@@ -250,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Performance optimization - lazy load images
     if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries) => {
+        const imageObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
@@ -262,14 +265,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-        
+
         document.querySelectorAll('img[data-src]').forEach(img => {
             imageObserver.observe(img);
         });
     }
 
     // Add page visibility handling
-    document.addEventListener('visibilitychange', function() {
+    document.addEventListener('visibilitychange', function () {
         if (document.hidden) {
             document.title = '👋 HLPFL - Come back soon!';
         } else {
@@ -277,5 +280,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    console.log('HLPFL Link-in-Bio initialized successfully 🎵');
+    // HLPFL Link-in-Bio initialized successfully
+    
+    // Register Service Worker for PWA capabilities
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    // Service Worker registered successfully
+                })
+                .catch(error => {
+                    // Service Worker registration failed
+                });
+        });
+    }
 });

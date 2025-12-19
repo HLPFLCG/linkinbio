@@ -1,0 +1,66 @@
+{
+    "name": "HLPFL - Link in Bio",
+    "short_name": "HLPFL",
+    "description": "Michigan-based record label discovering, developing, and promoting exceptional musical talent.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#c87941",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "images/favicon/noboxfaviconArtboard 1@0.75x.webp",
+            "sizes": "48x48",
+            "type": "image/webp",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/favicon/noboxfaviconArtboard 1@1x.webp",
+            "sizes": "72x72",
+            "type": "image/webp",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/favicon/noboxfaviconArtboard 1@1.5x.webp",
+            "sizes": "96x96",
+            "type": "image/webp",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/favicon/noboxfaviconArtboard 1@2x.webp",
+            "sizes": "144x144",
+            "type": "image/webp",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/favicon/noboxfaviconArtboard 1@2x.webp",
+            "sizes": "192x192",
+            "type": "image/webp",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/favicon/noboxfaviconArtboard 1@2x.webp",
+            "sizes": "512x512",
+            "type": "image/webp",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["music", "entertainment", "business"],
+    "screenshots": [],
+    "shortcuts": [
+        {
+            "name": "Artists",
+            "short_name": "Artists",
+            "description": "View our artists",
+            "url": "https://hlpfl.org/artists/",
+            "icons": []
+        },
+        {
+            "name": "Releases",
+            "short_name": "Releases",
+            "description": "Latest music releases",
+            "url": "https://hlpfl.org/releases/",
+            "icons": []
+        }
+    ]
+}
