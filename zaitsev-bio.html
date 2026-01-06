@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaitsev Holding Group - Link in Bio</title>
+    <meta name="description" content="Zaitsev Holding Group: Building Tomorrow through strategic investments and operational excellence.">
+    <link rel="stylesheet" href="zaitsev-bio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bio.zaitsev.co" />
+    <meta property="og:title" content="Zaitsev Holding Group - Link in Bio" />
+    <meta property="og:description" content="Zaitsev Holding Group: Building Tomorrow through strategic investments and operational excellence." />
+    <meta property="og:image" content="https://zaitsev.co/images/Artboard%201zhg3.png" />
+    <meta property="og:site_name" content="Zaitsev Holding Group" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://bio.zaitsev.co" />
+    <meta name="twitter:title" content="Zaitsev Holding Group - Link in Bio" />
+    <meta name="twitter:description" content="Zaitsev Holding Group: Building Tomorrow through strategic investments and operational excellence." />
+    <meta name="twitter:image" content="https://zaitsev.co/images/Artboard%201zhg3.png" />
+    <meta name="twitter:site" content="@zaitsevhg" />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="bio-container">
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <div class="profile-image-wrapper">
+                <img src="https://zaitsev.co/images/Artboard 1zhg3.png" alt="Zaitsev Holding Group" class="profile-image">
+            </div>
+            <h1 class="profile-name">Zaitsev Holding Group</h1>
+            <p class="profile-bio">Building Tomorrow • Private Equity & Holdings</p>
+        </section>
+
+        <!-- Links Section -->
+        <div class="links-container">
+            <a href="https://zaitsev.co" class="bio-link" data-track="main-website">
+                <span class="link-icon">🏢</span>
+                <span class="link-text">Main Website</span>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <a href="https://zaitsev.co/portfolio" class="bio-link" data-track="portfolio">
+                <span class="link-icon">📊</span>
+                <span class="link-text">Portfolio Companies</span>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <a href="https://hlpfl.org" class="bio-link featured" data-track="hlpfl-platform">
+                <span class="link-icon">🎵</span>
+                <span class="link-text">HLPFL Platform</span>
+                <span class="link-badge">Featured</span>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <a href="https://biobetter.bio" class="bio-link" data-track="biobetter">
+                <span class="link-icon">🔗</span>
+                <span class="link-text">BioBetter - Link in Bio</span>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <a href="https://zaitsev.co/contact" class="bio-link" data-track="contact">
+                <span class="link-icon">📧</span>
+                <span class="link-text">Get in Touch</span>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <a href="https://hlpfl.org/artist-portal/" class="bio-link" data-track="artist-portal">
+                <span class="link-icon">🚀</span>
+                <span class="link-text">Artist Portal</span>
+                <span class="link-arrow">→</span>
+            </a>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Portfolio Companies</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Artists Supported</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Digital Platforms</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2024 Zaitsev Holding Group, LLC</p>
+            <div class="footer-links">
+                <a href="https://zaitsev.co/terms.html" target="_blank" rel="noopener noreferrer">Terms</a>
+                <a href="https://zaitsev.co/privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Analytics tracking for link clicks
+        document.querySelectorAll('.bio-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const trackData = this.getAttribute('data-track');
+                console.log('Link clicked:', trackData);
+                
+                // Google Analytics 4 tracking (if GA4 is configured)
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click', {
+                        'event_category': 'bio_link',
+                        'event_label': trackData
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.bio-link');
+            links.forEach((link, index) => {
+                setTimeout(() => {
+                    link.style.opacity = '1';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>
