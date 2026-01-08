@@ -772,3 +772,57 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gold-light);
 }
+
+/* Spotify Embeds Section */
+.spotify-section {
+  margin: 40px 0;
+  padding: 0;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.spotify-embed {
+  margin-bottom: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spotify-embed:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.spotify-embed:last-child {
+  margin-bottom: 0;
+}
+
+.spotify-embed iframe {
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+/* Responsive adjustments for Spotify embeds */
+@media (max-width: 768px) {
+  .spotify-section {
+    margin: 32px 0;
+  }
+
+  .section-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .spotify-embed {
+    margin-bottom: 20px;
+  }
+}
