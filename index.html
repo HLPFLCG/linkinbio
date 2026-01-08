@@ -3,7 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HLPFL Records - Michigan-Based Record Label | Link in Bio</title>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', {
+        'page_title': 'HLPFL Link in Bio',
+        'page_location': window.location.href
+      });
+    </script>
+
+    <title>HLPFL - Tools Not Contracts | Link in Bio</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="logo.svg" />
@@ -16,60 +29,63 @@
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="form.css" />
+
+    <!-- DNS Prefetch & Preconnect for Performance -->
+    <link rel="dns-prefetch" href="https://open.spotify.com" />
+    <link rel="preconnect" href="https://open.spotify.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Stylesheets with optimization -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="form.css" />
+
+    <!-- Optimized Font Loading -->
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <!-- SEO Meta Tags -->
     <meta
       name="description"
-      content="HLPFL Records - Michigan-based record label discovering, developing, and promoting exceptional musical talent. Elevating artists to global recognition with cutting-edge production and worldwide distribution."
+      content="HLPFL - Tools, Not Contracts. We're not here to sign you. We're here to set you free. Build your music career on your terms with our free artist toolkit."
     />
     <meta
       name="keywords"
-      content="HLPFL, record label, music production, artist development, Michigan music, independent label, music distribution"
+      content="HLPFL, independent music tools, artist toolkit, music distribution, no contracts, artist freedom, music career tools"
     />
-    <meta name="author" content="HLPFL Records" />
-    <link rel="canonical" href="https://hlpfl.com" />
+    <meta name="author" content="HLPFL" />
+    <link rel="canonical" href="https://hlpfl.info" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://hlpfl.com" />
-    <meta
-      property="og:title"
-      content="HLPFL Records - Michigan-Based Record Label"
-    />
+    <meta property="og:url" content="https://hlpfl.info" />
+    <meta property="og:title" content="HLPFL - Tools, Not Contracts" />
     <meta
       property="og:description"
-      content="Michigan-based record label elevating artists to global recognition with cutting-edge production and worldwide distribution."
+      content="We're not here to sign you. We're here to set you free. Free artist toolkit for independent musicians."
     />
-    <meta
-      property="og:image"
-      content="https://hlpfl.info/images/founder/0914B329-9D3E-421B-95D9-D027EC731771.jpeg"
-    />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="HLPFL Records" />
+    <meta property="og:image" content="https://hlpfl.org/logo.svg" />
+    <meta property="og:site_name" content="HLPFL" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://hlpfl.com" />
-    <meta
-      name="twitter:title"
-      content="HLPFL Records - Michigan-Based Record Label"
-    />
+    <meta name="twitter:url" content="https://hlpfl.info" />
+    <meta name="twitter:title" content="HLPFL - Tools, Not Contracts" />
     <meta
       name="twitter:description"
-      content="Michigan-based record label elevating artists to global recognition."
+      content="We're not here to sign you. We're here to set you free."
     />
-    <meta
-      name="twitter:image"
-      content="https://hlpfl.info/images/founder/0914B329-9D3E-421B-95D9-D027EC731771.jpeg"
-    />
+    <meta name="twitter:image" content="https://hlpfl.org/logo.svg" />
     <meta name="twitter:site" content="@hlpfl_" />
     <meta name="twitter:creator" content="@hlpfl_" />
 
@@ -131,28 +147,27 @@
             />
             <div class="verified-badge">✓</div>
           </div>
-          <h1 class="profile-name">Jim Rockel | HLPFL</h1>
-          <p class="profile-handle">@hlpfl_ | @jm.rckl</p>
+          <h1 class="profile-name">HLPFL</h1>
+          <p class="profile-handle">Tools, Not Contracts</p>
           <p class="profile-bio">
-            Michigan-based record label discovering, developing, and promoting
-            exceptional musical talent. Elevating artists to global recognition
-            with cutting-edge production and worldwide distribution.
+            We're not here to sign you. We're here to set you free.
+            Build your music career on your terms. Zero contracts. Full control.
           </p>
           <div class="logo-container">
             <img src="logo.svg" alt="HLPFL" class="logo-svg" />
           </div>
           <div class="profile-stats">
             <div class="stat">
-              <span class="stat-number">5+</span>
-              <span class="stat-label">Artists</span>
+              <span class="stat-number">6+</span>
+              <span class="stat-label">Tools</span>
             </div>
             <div class="stat">
-              <span class="stat-number">50+</span>
-              <span class="stat-label">Releases</span>
+              <span class="stat-number">0%</span>
+              <span class="stat-label">Ownership</span>
             </div>
             <div class="stat">
-              <span class="stat-number">5M+</span>
-              <span class="stat-label">Streams</span>
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Yours</span>
             </div>
           </div>
         </section>
@@ -160,8 +175,22 @@
         <!-- Links Section -->
         <section class="links" aria-label="Important links">
           <a
-            href="https://hlpfl.org"
+            href="https://hlpfl.org/artist-portal/"
             class="link-button primary"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="link-icon">🚀</div>
+            <div class="link-content">
+              <span class="link-title">Get The Tools</span>
+              <span class="link-url">Free Artist Toolkit</span>
+            </div>
+            <div class="link-arrow">→</div>
+          </a>
+
+          <a
+            href="https://hlpfl.org"
+            class="link-button"
             target="_blank"
             rel="noopener"
           >
@@ -179,10 +208,10 @@
             target="_blank"
             rel="noopener"
           >
-            <div class="link-icon">🎵</div>
+            <div class="link-icon">🎤</div>
             <div class="link-content">
               <span class="link-title">Our Artists</span>
-              <span class="link-description">Discover talented artists</span>
+              <span class="link-description">Independent & empowered</span>
             </div>
             <div class="link-arrow">→</div>
           </a>
@@ -270,6 +299,21 @@
             </div>
             <div class="link-arrow">→</div>
           </a>
+        </section>
+
+        <!-- Spotify Embeds Section -->
+        <section class="spotify-section" aria-label="Featured Artists on Spotify">
+          <h2 class="spotify-title">Listen Now</h2>
+
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0a8lHob1Gah0QmmzrWZoH5?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/4NU33b6SZRD7mGTUKFIicG?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/6M4q5QWjmpjuPAi7LVFEFG?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0jIqPF7laDAaZmSeoSzLlt?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1Jof1vMpSF5pIWUvG9cizl?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </section>
 
         <!-- Social Links -->
