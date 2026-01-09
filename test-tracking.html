@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tracking Test</title>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WJZHGVZC');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CVK154V9E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1CVK154V9E');
+
+      // Debug logging
+      console.log('GA4 initialized');
+      console.log('dataLayer:', window.dataLayer);
+    </script>
+
+    <script>
+      // Test after page loads
+      window.addEventListener('load', function() {
+        console.log('=== TRACKING DEBUG INFO ===');
+        console.log('GTM Container ID: GTM-WJZHGVZC');
+        console.log('GA4 Property ID: G-1CVK154V9E');
+        console.log('dataLayer contents:', window.dataLayer);
+        console.log('gtag function exists:', typeof gtag !== 'undefined');
+
+        // Send test event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'test_page_view', {
+            'event_category': 'tracking_test',
+            'event_label': 'manual_test'
+          });
+          console.log('✅ Test event sent to GA4');
+        }
+      });
+    </script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJZHGVZC"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <h1>Tracking Test Page</h1>
+    <p>Open browser console (F12) to see tracking debug info</p>
+    <ol>
+        <li>Check console for "GA4 initialized" message</li>
+        <li>Check console for dataLayer contents</li>
+        <li>Check Network tab for requests to google-analytics.com and googletagmanager.com</li>
+        <li>Use Google Tag Assistant Chrome extension to verify tags are firing</li>
+    </ol>
+</body>
+</html>
