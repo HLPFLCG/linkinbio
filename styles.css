@@ -775,49 +775,54 @@ html {
 
 /* Spotify Embeds Section */
 .spotify-section {
-  margin: 48px 0 40px;
+  margin: 40px 0;
   padding: 0;
 }
 
-.spotify-title {
-  font-size: 28px;
-  font-weight: 800;
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
   color: var(--text-dark);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   text-align: center;
-  letter-spacing: -1px;
-  text-transform: uppercase;
+  letter-spacing: -0.5px;
 }
 
-.spotify-section iframe {
-  display: block;
-  width: 100%;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.spotify-embed {
+  margin-bottom: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.spotify-section iframe:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+.spotify-embed:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-.spotify-section iframe:last-child {
+.spotify-embed:last-child {
   margin-bottom: 0;
 }
 
-/* Mobile optimization for Spotify */
+.spotify-embed iframe {
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+/* Responsive adjustments for Spotify embeds */
 @media (max-width: 768px) {
   .spotify-section {
-    margin: 36px 0 32px;
+    margin: 32px 0;
   }
 
-  .spotify-title {
-    font-size: 24px;
-    margin-bottom: 24px;
+  .section-title {
+    font-size: 20px;
+    margin-bottom: 20px;
   }
 
-  .spotify-section iframe {
-    margin-bottom: 16px;
+  .spotify-embed {
+    margin-bottom: 20px;
   }
 }
